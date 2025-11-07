@@ -61,7 +61,7 @@ function runGsapAnimations() {
                 
                 // Precisamos da posição "original" do avatar para calcular a diferença
                 // Usamos o 'pin-spacer' que o GSAP cria, ou o próprio avatar se o spacer não existir
-                const spacer = ScrollTrigger.spacerLookup[avatar as Element]?.element || avatar;
+                const spacer = (avatar as HTMLElement).parentElement || avatar;
                 const startRect = spacer.getBoundingClientRect();
 
                 const x = targetRect.left - startRect.left;
