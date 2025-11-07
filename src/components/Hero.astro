@@ -35,7 +35,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="GitHub"
                 class="Fade_Stagger"
             >
-                <svg
+              <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -59,7 +59,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="LinkedIn"
                 class="Fade_Stagger"
             >
-                <svg
+              <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -83,7 +83,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="Instagram"
                 class="Fade_Stagger"
             >
-                <svg
+              <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -153,60 +153,117 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* --- ALTERAÇÃO 5: Consistência do CSS --- */
-        object-position: 50% 17%; /* Mudei de 35% para 17% para corresponder ao seu HTML */
-        transition: opacity 0.5s ease-out;
+        object-position: 50% 17%;
     }
 
+    /* DOCUMENTAÇÃO DA ALTERAÇÃO:
+      Mudámos de '10s' para '6s' para acelerar a animação. 
+    */
+    .avatar-default {
+        animation: swap-default 6s infinite;
+    }
+
+    /* DOCUMENTAÇÃO DA ALTERAÇÃO:
+      Mudámos de '10s' para '6s' para acelerar a animação. 
+    */
     .avatar-hover {
-        opacity: 0;
-        visibility: hidden;
+        animation: swap-hover 6s infinite;
     }
+    
+    /* Os @keyframes não precisam de ser alterados.
+      Como reduzimos o tempo total da animação (de 10s para 6s),
+      o browser vai automaticamente recalcular todas estas
+      percentagens para correrem mais rápido.
+    */
+    @keyframes swap-default {
+        0%, 43% {
+            opacity: 1;
+            transform: translate(0, 0);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        43.1%, 93% {
+            opacity: 0; /* Fica escondido */
+        }
 
-    #avatar-container:hover .avatar-default {
-        opacity: 0;
-    }
-
-    #avatar-container:hover .avatar-hover {
-        opacity: 1;
-        visibility: visible;
-        animation: glitch-reveal 0.7s forwards;
-    }
-
-    /* O keyframe "glitch-reveal" permanece o mesmo */
-    @keyframes glitch-reveal {
-        0% {
+        /* Transição de volta (9.3s-10s -> agora 5.58s-6s) - O Glitch */
+        93.1% { 
+            opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 2%, 100% 2%, 100% 18%, 0 18%);
         }
-        10% {
+        93.8% { 
             transform: translate(-10px, 5px);
             clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%);
         }
-        20% {
+        94.5% { 
             transform: translate(5px, -10px);
             clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
         }
-        30% {
+        95.2% { 
             transform: translate(0, 0);
             clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
         }
-        40% {
+        95.9% { 
             transform: translate(10px, -5px);
             clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
         }
-        50% {
+        96.6% { 
             transform: translate(-5px, 10px);
             clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
         }
-        60% {
+        97.3% { 
             transform: translate(0, 0);
             clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
         }
-        70%,
-        100% {
+        98%, 100% { 
+            opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+    }
+
+    @keyframes swap-hover {
+        0%, 43% {
+            opacity: 0; /* Fica escondido */
+        }
+        
+        /* Transição de ida (4.3s-5s -> agora 2.58s-3s) - O Glitch */
+        43.1% { 
+            opacity: 1;
+            transform: translate(0, 0);
+            clip-path: polygon(0 2%, 100% 2%, 100% 18%, 0 18%);
+        }
+        43.8% { 
+            transform: translate(-10px, 5px);
+            clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%);
+        }
+        44.5% { 
+            transform: translate(5px, -10px);
+            clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
+        }
+        45.2% { 
+            transform: translate(0, 0);
+            clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
+        }
+        45.9% { 
+            transform: translate(10px, -5px);
+            clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
+        }
+        46.6% { 
+            transform: translate(-5px, 10px);
+            clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
+        }
+        47.3% { 
+            transform: translate(0, 0);
+            clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
+        }
+        48%, 93% { 
+            opacity: 1;
+            transform: translate(0, 0);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+        93.1%, 100% {
+            opacity: 0; /* Fica escondido */
         }
     }
 </style>
