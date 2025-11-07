@@ -4,6 +4,7 @@ import { AstroFont } from "astro-font";
 import { join } from "node:path";
 import { Header, MobileHeader, Cursor } from "../components/UI";
 import { Footer } from "../components";
+import favicon from "../assets/Logos/ContactVector.png"; 
 ---
 
 <!doctype html>
@@ -51,27 +52,27 @@ import { Footer } from "../components";
                 creator: "Israel Miguel",
                 image: "",
             }}
-            extend={{
-                link: [
-                    { rel: "icon", type: "image/png", href: "/favicon.png" },
-                    {
-                        rel: "shortcut",
-                        type: "image/png",
-                        href: "/favicon.png",
-                    },
-                    {
-                        rel: "apple-touch-icon",
-                        type: "image/png",
-                        href: "/favicon.png",
-                    },
-                ],
-                meta: [
-                    {
-                        name: "twitter:url",
-                        content: "",
-                    },
-                ],
-            }}
+           extend={{
+                link: [
+                    { rel: "icon", type: "image/png", href: favicon.src },
+                    {
+                        rel: "shortcut",
+                        type: "image/png",
+                        href: favicon.src,
+                    },
+                    {
+                        rel: "apple-touch-icon",
+                        type: "image/png",
+                        href: favicon.src,
+                    },
+                ],
+                meta: [
+                    {
+                        name: "twitter:url",
+                        content: "",
+                    },
+                ],
+            }}
         />
 
         <AstroFont
