@@ -13,7 +13,7 @@ import sitemirageShot from "../assets/projetos/sitemirage.png";
 
 // --- Importações de Mockup (Apenas as usadas para manter a tipagem) ---
 import { ARMSv3Mockup } from "../assets/Mockup"; 
-// REMOVIDO: ArmsLogo, NextmartLogo, VortexaLogo para corrigir o erro de build.
+// Linhas problemáticas como 'import { ArmsLogo, NextmartLogo, VortexaLogo } from "../assets/Logos";' FORAM REMOVIDAS.
 
 
 // --- Tipagem de Dados (Manteve-se a original) ---
