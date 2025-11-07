@@ -35,7 +35,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="GitHub"
                 class="Fade_Stagger"
             >
-              <svg
+                <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -59,7 +59,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="LinkedIn"
                 class="Fade_Stagger"
             >
-              <svg
+                <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -83,7 +83,7 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                 aria-label="Instagram"
                 class="Fade_Stagger"
             >
-              <svg
+                <svg
                     stroke="currentColor"
                     fill="currentColor"
                     stroke-width="0"
@@ -99,16 +99,37 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
                     ></path>
                 </svg>
             </a>
-        </div>
+
+            <button
+                id="install-button"
+                title="Instalar App"
+                aria-label="Instalar App"
+                class="Fade_Stagger hidden" 
+            >
+                <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    stroke-width="0"
+                    viewBox="0 0 24 24" 
+                    color="#fff"
+                    height="30"
+                    width="30"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="color: var(--heroSocialColor);"
+                >
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"></path>
+                </svg>
+            </button>
+            </div>
     </div>
 
     <div
-        id="hero-avatar-widget" 
+        id="hero-avatar-widget"
         class="Hero_Orbit relative flex_center w-[350px] lg:w-[600px] aspect-square"
     >
         <div
             id="avatar-container"
-            class="flex_center w-[50%] aspect-square rounded-full z-10 relative overflow-hidden" 
+            class="flex_center w-[50%] aspect-square rounded-full z-10 relative overflow-hidden"
         >
             <Image
                 src={avatar2}
@@ -157,24 +178,24 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
     }
 
     /* DOCUMENTAÇÃO DA ALTERAÇÃO:
-      Mudámos de '10s' para '6s' para acelerar a animação. 
-    */
+      Mudámos de '10s' para '6s' para acelerar a animação. 
+    */
     .avatar-default {
         animation: swap-default 6s infinite;
     }
 
     /* DOCUMENTAÇÃO DA ALTERAÇÃO:
-      Mudámos de '10s' para '6s' para acelerar a animação. 
-    */
+      Mudámos de '10s' para '6s' para acelerar a animação. 
+    */
     .avatar-hover {
         animation: swap-hover 6s infinite;
     }
-    
+
     /* Os @keyframes não precisam de ser alterados.
-      Como reduzimos o tempo total da animação (de 10s para 6s),
-      o browser vai automaticamente recalcular todas estas
-      percentagens para correrem mais rápido.
-    */
+      Como reduzimos o tempo total da animação (de 10s para 6s),
+      o browser vai automaticamente recalcular todas estas
+      percentagens para correrem mais rápido.
+    */
     @keyframes swap-default {
         0%, 43% {
             opacity: 1;
@@ -186,36 +207,36 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
         }
 
         /* Transição de volta (9.3s-10s -> agora 5.58s-6s) - O Glitch */
-        93.1% { 
+        93.1% {
             opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 2%, 100% 2%, 100% 18%, 0 18%);
         }
-        93.8% { 
+        93.8% {
             transform: translate(-10px, 5px);
             clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%);
         }
-        94.5% { 
+        94.5% {
             transform: translate(5px, -10px);
             clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
         }
-        95.2% { 
+        95.2% {
             transform: translate(0, 0);
             clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
         }
-        95.9% { 
+        95.9% {
             transform: translate(10px, -5px);
             clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
         }
-        96.6% { 
+        96.6% {
             transform: translate(-5px, 10px);
             clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
         }
-        97.3% { 
+        97.3% {
             transform: translate(0, 0);
             clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
         }
-        98%, 100% { 
+        98%, 100% {
             opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -226,38 +247,38 @@ import avatar2 from "../avatar2.png"; // Imagem estilizada
         0%, 43% {
             opacity: 0; /* Fica escondido */
         }
-        
+
         /* Transição de ida (4.3s-5s -> agora 2.58s-3s) - O Glitch */
-        43.1% { 
+        43.1% {
             opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 2%, 100% 2%, 100% 18%, 0 18%);
         }
-        43.8% { 
+        43.8% {
             transform: translate(-10px, 5px);
             clip-path: polygon(0 25%, 100% 25%, 100% 35%, 0 35%);
         }
-        44.5% { 
+        44.5% {
             transform: translate(5px, -10px);
             clip-path: polygon(0 50%, 100% 50%, 100% 55%, 0 55%);
         }
-        45.2% { 
+        45.2% {
             transform: translate(0, 0);
             clip-path: polygon(0 70%, 100% 70%, 100% 75%, 0 75%);
         }
-        45.9% { 
+        45.9% {
             transform: translate(10px, -5px);
             clip-path: polygon(0 40%, 100% 40%, 100% 60%, 0 60%);
         }
-        46.6% { 
+        46.6% {
             transform: translate(-5px, 10px);
             clip-path: polygon(0 10%, 100% 10%, 100% 30%, 0 30%);
         }
-        47.3% { 
+        47.3% {
             transform: translate(0, 0);
             clip-path: polygon(0 80%, 100% 80%, 100% 95%, 0 95%);
         }
-        48%, 93% { 
+        48%, 93% {
             opacity: 1;
             transform: translate(0, 0);
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);

@@ -252,3 +252,66 @@ document
             }
         });
     });
+
+/* ==========================================================================
+INÍCIO DO CÓDIGO ADICIONADO: Lógica para Instalação do PWA (App)
+==========================================================================
+*/
+
+let deferredPrompt: any;
+// Seleciona o botão que adicionámos no Hero.astro
+const installButton = document.querySelector<HTMLButtonElement>('#install-button');
+
+// 1. Ouve o evento do navegador que indica que o PWA pode ser instalado
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Previne que o mini-banner de instalação padrão apareça
+  e.preventDefault();
+  
+  // Guarda o evento para que possamos ativá-lo mais tarde
+  deferredPrompt = e;
+
+  // Mostra o nosso botão customizado (removendo a classe 'hidden')
+  if (installButton) {
+    installButton.classList.remove('hidden');
+    console.log('PWA pronto para ser instalado. Botão visível.');
+  }
+});
+
+// 2. Adiciona o listener de clique ao nosso botão
+if (installButton) {
+  installButton.addEventListener('click', async () => {
+    // Se não houver evento guardado, não faz nada
+    if (!deferredPrompt) {
+      console.log('Nenhum evento de prompt guardado.');
+      return;
+    }
+
+    // Mostra o prompt de instalação ao utilizador
+    deferredPrompt.prompt();
+
+    // Espera pela escolha do utilizador (aceitou ou recusou)
+    const { outcome } = await deferredPrompt.userChoice;
+
+    if (outcome === 'accepted') {
+      console.log('Utilizador aceitou a instalação do PWA');
+    } else {
+      console.log('Utilizador recusou a instalação do PWA');
+    }
+
+    // Esconde o botão e limpa o evento (o prompt só pode ser usado uma vez)
+    installButton.classList.add('hidden');
+    deferredPrompt = null;
+  });
+}
+
+// 3. (Opcional) Ouve quando o app é instalado com sucesso
+window.addEventListener('appinstalled', () => {
+  // Esconde o botão (caso ainda esteja visível) e limpa o prompt
+  if (installButton) {
+    installButton.classList.add('hidden');
+  }
+  deferredPrompt = null;
+  console.log('PWA foi instalado com sucesso!');
+});
+
+/* --- Fim da Lógica PWA --- */
