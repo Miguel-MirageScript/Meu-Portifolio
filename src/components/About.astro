@@ -1,63 +1,93 @@
 ---
+/* DOCUMENTAÇÃO (Script)
+  Removemos toda a lógica de 'fetch' e 'GraphQL'.
+  Voltámos a importar apenas o que o componente realmente usa.
+*/
 import { Image } from "astro:assets";
 import { SectionTitle } from "./UI";
 ---
 
 <section id="about" class="w-full min-h-screen px-6 py-4 pt-14 bg-background">
-    <SectionTitle
-        title="Sobre Mim"
-        color="primary"
-        className="h-screen flex flex-col justify-center"
-    >
-        <div class="flex flex-col lg:flex-row w-full h-full py-10 gap-8 items-center">
-            {/* Coluna dos gráficos do Github */}
-            <div class="Fade_Up w-full lg:w-[40%] flex flex-col items-center justify-center gap-8 order-2 lg:order-1">
-                <div class="w-full">
-                    <h3 class="text-[1.1em] font-semibold mb-4 text-center">Contribuições no GitHub</h3>
-                    <img 
-                        src="https://github-readme-stats.vercel.app/api?username=Miguel-MirageScript&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&bg_color=00000000&rank_icon=percentile&show=reviews,prs_merged,prs_merged_percentage&hide=contribs" 
-                        alt="GitHub Stats" 
-                        class="mx-auto rounded-lg mb-6 about-chart"
-                    />
-                </div>
-                <div class="w-full">
-                    <h3 class="text-[1.1em] font-semibold mb-4 text-center">Linguagens Mais Usadas</h3>
-                    <img 
-                        src="https://github-readme-stats.vercel.app/api/top-langs?username=Miguel-MirageScript&hide_border=true&theme=radical&bg_color=00000000&langs_count=10&layout=compact&card_width=350" 
-                        alt="Top Languages" 
-                        class="mx-auto rounded-lg mb-2 about-chart"
-                    />
-                </div>
-            </div>
-
-            {/* Apresentação */}
-            <div class="Fade_Up w-full lg:w-[60%] flex flex-col justify-center items-start gap-4 lg:border-l border-primary py-8 lg:pl-10 order-1 lg:order-2">
-                <h2 class="Fade_Up text-[1.5em] font-bold">Olá! Tudo bem? 👋🏻</h2>
-                <p class="Fade_Up text-left">
-                    Me chamo Israel Miguel e sou um estudante de desenvolvimento Full Stack apaixonado por criar soluções para a web por meio da programação.
-                </p>
-                <p class="Fade_Up text-left">
-                    Sou fundador da 
-                    <a href="https://site-mirage-beryl.vercel.app/" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold ml-1 mr-1">
-                        Mirage Script
-                    </a>
-                    , empresa dedicada a tecnologia e desenvolvimento web, voltada para inovação e impacto digital. No Mirage Script, atuamos desde a concepção de projetos até a entrega de plataformas eficientes e responsivas, sempre priorizando o aprendizado contínuo e a evolução técnica.
-                </p>
-                <p class="Fade_Up text-left">
-                    Em paralelo à empresa, coordeno a comunidade 
-                    <a href="https://github.com/Mirage-Script" target="_blank" rel="noopener noreferrer" class="text-primary font-semibold ml-1 mr-1">
-                        Mirage Script Open Source
-                    </a>
-                    , uma iniciativa voltada para unir desenvolvedores em torno de projetos colaborativos. Nosso espaço incentiva o networking, o suporte mútuo e a participação ativa em projetos abertos, promovendo o crescimento técnico e o espírito de comunidade dentro do universo do desenvolvimento.
-                </p>
-                <p class="Fade_Up text-left">
-                    Atualmente, estou construindo meu portfólio e expandindo minhas habilidades todos os dias, explorando novas tecnologias e práticas de desenvolvimento. Busco uma oportunidade onde eu possa colocar em prática o que venho aprendendo, crescer como desenvolvedor web e fortalecer ainda mais minha base técnica.
-                </p>
-            </div>
+  <SectionTitle
+    title="Sobre Mim"
+    color="primary"
+    className="h-screen flex flex-col justify-center"
+  >
+    <div class="flex flex-col lg:flex-row w-full h-full py-10 gap-8 items-center">
+      
+      <div class="Fade_Up w-full lg:w-[40%] flex flex-col items-center justify-center gap-8 order-2 lg:order-1">
+        <div class="w-full">
+          <h3 class="text-[1.1em] font-semibold mb-4 text-center">
+            Contribuições no GitHub
+          </h3>
+          <img
+            src="https://github-readme-stats.vercel.app/api?username=Miguel-MirageScript&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&bg_color=00000000&rank_icon=percentile&show=reviews,prs_merged,prs_merged_percentage&hide=contribs"
+            alt="GitHub Stats"
+            class="mx-auto rounded-lg mb-6 about-chart"
+          />
         </div>
-    </SectionTitle>
+
+        <div class="w-full">
+          <h3 class="text-[1.1em] font-semibold mb-4 text-center">
+            Linguagens Mais Usadas
+          </h3>
+          <img
+            src="https://github-readme-stats.vercel.app/api/top-langs?username=Miguel-MirageScript&hide_border=true&theme=radical&bg_color=00000000&langs_count=10&layout=compact&card_width=350"
+            alt="Top Languages"
+            class="mx-auto rounded-lg mb-2 about-chart"
+          />
+        </div>
+      </div>
+
+      <div class="Fade_Up w-full lg:w-[60%] flex flex-col justify-center items-start gap-4 lg:border-l border-primary py-8 lg:pl-10 order-1 lg:order-2">
+        <h2 class="Fade_Up text-[1.5em] font-bold">Olá! Tudo bem? 👋🏻</h2>
+        <p class="Fade_Up text-left">
+          Me chamo Israel Miguel e sou um estudante de desenvolvimento Full Stack
+          apaixonado por criar soluções para a web por meio da programação.
+        </p>
+        <p class="Fade_Up text-left">
+          Sou fundador da
+          <a
+            href="https://site-mirage-beryl.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary font-semibold ml-1 mr-1"
+          >
+            Mirage Script
+          </a>
+          , empresa dedicada a tecnologia e desenvolvimento web, voltada para
+          inovação e impacto digital. No Mirage Script, atuamos desde a
+          concepção de projetos até a entrega de plataformas eficientes e
+          responsivas, sempre priorizando o aprendizado contínuo e a evolução
+          técnica.
+        </p>
+        <p class="Fade_Up text-left">
+          Em paralelo à empresa, coordeno a comunidade
+          <a
+            href="https://github.com/Mirage-Script"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary font-semibold ml-1 mr-1"
+          >
+            Mirage Script Open Source
+          </a>
+          , uma iniciativa voltada para unir desenvolvedores em torno de
+          projetos colaborativos. Nosso espaço incentiva o networking, o suporte
+          mútuo e a participação ativa em projetos abertos, promovendo o
+          crescimento técnico e o espírito de comunidade dentro do universo do
+          desenvolvimento.
+        </p>
+        <p class="Fade_Up text-left">
+          Atualmente, estou construindo meu portfólio e expandindo minhas
+          habilidades todos os dias, explorando novas tecnologias e práticas de
+          desenvolvimento. Busco uma oportunidade onde eu possa colocar em
+          prática o que venho aprendendo, crescer como desenvolvedor web e
+          fortalecer ainda mais minha base técnica.
+        </p>
+      </div>
+    </div>
+  </SectionTitle>
 </section>
 
-{/* Espaçamento visual definitivo entre as sessões */}
 <div class="about-sep"></div>
 <div class="about-sep-mobile"></div>
