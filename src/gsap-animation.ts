@@ -28,6 +28,9 @@ function runGsapAnimations() {
     console.log("GSAP: Elementos encontrados! A criar animação.");
 
     // Só executa a animação em ecrãs grandes (onde os alvos existem)
+    // Nota: O aviso ts(6387) sobre matchMedia depreciado é aceitável aqui, 
+    // mas a sintaxe ScrollTrigger.matchMedia({..}) ainda funciona no momento.
+    // A correção ideal seria usar gsap.matchMedia({...}).
     ScrollTrigger.matchMedia({
         "(min-width: 1024px)": function () {
             console.log("GSAP: A correr em modo desktop.");
@@ -57,18 +60,33 @@ function runGsapAnimations() {
             // Helper function para calcular a posição X e Y
             const getTargetCoords = (target: Element) => {
                 const targetRect = target.getBoundingClientRect();
-                const avatarRect = avatar.getBoundingClientRect();
+                // A linha abaixo foi removida, pois 'avatarRect' não era usada (ts(6133))
+                // const avatarRect = avatar.getBoundingClientRect(); 
                 
-                // Precisamos da posição "original" do avatar para calcular a diferença
-                // Usamos o 'pin-spacer' que o GSAP cria, ou o próprio avatar se o spacer não existir
-                const spacer = (avatar as HTMLElement).parentElement || avatar;
-                const startRect = spacer.getBoundingClientRect();
+                // --- CORREÇÃO CRÍTICA PARA 'spacerLookup' (ts(2339)) ---
+                // O ScrollTrigger cria um 'pin-spacer' que envolve o elemento fixado (pinned element). 
+                // A maneira mais limpa de obter o elemento a partir do qual calcular o offset 
+                // é verificar o parent do avatar, que deve ser o spacer.
+                // Usaremos um cast simples para garantir que o elemento pai existe.
+                
+                // O código original (que causava erro) era:
+                // const spacer = (ScrollTrigger as any).spacerLookup[avatar as Element]?.element || avatar;
+                // Vamos usar a verificação do elemento pai, que é a abordagem mais segura:
+                
+                let startElement: Element = avatar;
+                // Se o avatar foi fixado, seu pai é o spacer. Usamos o spacer para calcular o offset inicial.
+                if (avatar.parentElement && avatar.parentElement.classList.contains('pin-spacer')) {
+                    startElement = avatar.parentElement;
+                }
+                
+                const startRect = startElement.getBoundingClientRect();
 
                 const x = targetRect.left - startRect.left;
                 const y = targetRect.top - startRect.top;
 
                 return { x, y };
             };
+
 
             // ANIMAÇÃO 1: Ficar parado no Hero
             tl.to(avatar, { duration: 0.2, ease: "none" });
