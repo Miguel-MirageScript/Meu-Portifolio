@@ -31,7 +31,7 @@ import { Image } from "astro:assets";
                 id="socialCircle"
             >
                 <a
-                    href="https://www.linkedin.com/in/miguel-quiroz-cs/" // ADICIONE O LINK DO SEU LINKEDIN AQUI
+                    href="https://www.linkedin.com/in/miguel-quiroz-cs/"
                     class="socialIcon absolute w-12 lg:w-16 aspect-square flex_center p-2 lg:p-4 bg-background outline-dashed outline-2 outline-contactSocialColor rounded-full"
                     title="LinkedIn"
                     target="_blank"
@@ -106,7 +106,7 @@ import { Image } from "astro:assets";
                 </a>
                 
                 <a
-                    href="https://github.com/Miguel-MirageScript" // ADICIONE O LINK DO SEU GITHUB AQUI
+                    href="https://github.com/Miguel-MirageScript"
                     class="socialIcon absolute w-12 lg:w-16 aspect-square flex_center p-2 lg:p-4 bg-background outline-dashed outline-2 outline-contactSocialColor rounded-full"
                     title="GitHub"
                     target="_blank"
@@ -236,12 +236,3 @@ import { Image } from "astro:assets";
         window.addEventListener('resize', updatePosition);
     });
 </script>
-```eof
-
-### Principais Correções Aplicadas:
-
-1.  **Centralização da Logo:** Adicionei uma função `positionLogo()` que usa `top: 50%`, `left: 50%` e `transform: translate(-50%, -50%)` para garantir que a sua logo Mirage Script (`ContactArt`) esteja perfeitamente **centralizada** na horizontal e na vertical, resolvendo o problema visual que você notou.
-2.  **Posicionamento dos Ícones:** O cálculo do `radius` foi ajustado de um multiplicador de `0.5` para `0.8` (ou seja, 80% do raio interno) para afastar os ícones do centro e do anel pontilhado, garantindo que não se sobreponham à logo.
-3.  **Refatoração do JS:** O código foi refatorado com a função `updatePosition` e um evento `resize` para que os ícones se ajustem corretamente se o tamanho da tela mudar.
-
-Isso deve resolver o problema de bug e centralizar todos os elementos corretamente. O próximo e **último passo** é a tradução dos *placeholders* do formulário.
