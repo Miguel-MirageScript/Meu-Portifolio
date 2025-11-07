@@ -6,15 +6,14 @@ import {
 } from "../assets/Icons"
 
 // --- Importações de Logos e Imagens de Projeto ---
-import GsapLogo from "../assets/Logos/GsapLogo.png"; // NOVO: Importação do Logo GSAP (Corrigido para PNG)
+import GsapLogo from "../assets/Logos/GsapLogo.png"; // Logo GSAP (Corrigido para PNG)
 import casacamisetasShot from "../assets/projetos/casacamisetas.png";
 import meuportifolioShot from "../assets/projetos/meuportifolio.png";
 import sitemirageShot from "../assets/projetos/sitemirage.png";
 
 // --- Importações de Mockup (Apenas as usadas para manter a tipagem) ---
 import { ARMSv3Mockup } from "../assets/Mockup"; 
-// NOTA: As importações de ArmsLogo, NextmartLogo, VortexaLogo foram REMOVIDAS daqui
-// para corrigir os avisos ts(6133) que causavam o erro de build no Vercel.
+// REMOVIDO: ArmsLogo, NextmartLogo, VortexaLogo para corrigir o erro de build.
 
 
 // --- Tipagem de Dados (Manteve-se a original) ---
@@ -168,7 +167,7 @@ export const ProjectsList: ProjectsListType = [
             {
                 title: "Gestão de Catálogo",
                 description: "Sistema de gerenciamento de produtos com variações de tamanho, cor e estoque."
-            },
+            }
         ],
         hideProject: false,
         LogoSize: 50,
@@ -190,7 +189,7 @@ export const ProjectsList: ProjectsListType = [
             TechInfo.React, 
             TechInfo.TypeScript, 
             TechInfo.TailwindCSS, 
-            TechInfo.GSAP // CORRIGIDO: Substituição do ícone duplicado de React por GSAP
+            TechInfo.GSAP // CORRIGIDO: Uso do GSAP no Tech Stack
         ],
         features: [
             FeatureList.Responsive,
@@ -198,10 +197,10 @@ export const ProjectsList: ProjectsListType = [
             {
                 title: "Animações Fluidas com GSAP",
                 description: "Utilização da biblioteca GSAP para criar transições e efeitos visuais suaves e otimizados, elevando a qualidade da experiência do usuário."
-            },
+            }
         ],
         hideProject: false,
         LogoSize: 55,
         versions: []
-    },
+    }
 ]
