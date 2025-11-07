@@ -1,21 +1,20 @@
 import { type ImageMetadata } from "astro";
 
-// --- Importações de Ícones de Tecnologia (Existentes no seu código) ---
-// Mantenha apenas os ícones necessários para os 3 projetos
+// --- Importações de Ícones de Tecnologia (Apenas os essenciais) ---
 import {
     HtmlIcon, CssIcon, JsIcon, ReactIcon, TsIcon, AstroIcon, TailwindIcon
 } from "../assets/Icons"
 
-// --- Importações de Logos (Atualizado: Adicionando GsapLogo.png) ---
-import { ArmsLogo, NextmartLogo, VortexaLogo } from "../assets/Logos"; // Apenas como placeholder de estrutura
-import GsapLogo from "../assets/Logos/GsapLogo.png"; // NOVO: Importação do Logo GSAP
-// --- Importações de Imagens dos seus Projetos (Novas Importações) ---
+// --- Importações de Logos e Imagens de Projeto ---
+import GsapLogo from "../assets/Logos/GsapLogo.png"; // NOVO: Importação do Logo GSAP (Corrigido para PNG)
 import casacamisetasShot from "../assets/projetos/casacamisetas.png";
 import meuportifolioShot from "../assets/projetos/meuportifolio.png";
 import sitemirageShot from "../assets/projetos/sitemirage.png";
 
-// --- Importações de Mockup (Placeholder para manter a estrutura) ---
-import { ARMSv3Mockup } from "../assets/Mockup"; // Apenas como placeholder de estrutura
+// --- Importações de Mockup (Apenas as usadas para manter a tipagem) ---
+import { ARMSv3Mockup } from "../assets/Mockup"; 
+// NOTA: As importações de ArmsLogo, NextmartLogo, VortexaLogo foram REMOVIDAS daqui
+// para corrigir os avisos ts(6133) que causavam o erro de build no Vercel.
 
 
 // --- Tipagem de Dados (Manteve-se a original) ---
@@ -51,35 +50,6 @@ type ProjectsListType = {
         version: string
     }[]
 }[]
-
-// -- TEMPLATE COMENTADO (Mantido para manter a estrutura do código original) --
-// {
-//     Name: "TITLE",
-//     ShortDesc: "SHORT_DESCRIPTION",
-//     Desc: "DESCRIPTION",
-//     Logo: LOGO_URL,
-//     Shot: SCREENSHOT_URL,
-//     Mockup: MOCKUP_URL,
-//     Theme: "PROJECT_THEME_COLOR_HEX",
-//     Status: "completed OR development",
-//     Link: "PROJECT_URL",
-//     Source: "GITHUB_URL",
-//     Demo?: { 
-//         email: "DEMO_EMAIL", 
-//         password: "DEMO_PASSWORD" 
-//     },
-//     Tech: [TECH_ICONS_URL],
-//     features: [{
-//         title: "FEATURE_TITLE",
-//         description: "FEATURE_DESCRIPTION"
-//     }],
-//     hideProject: false,
-//     LogoSize: 50,
-//     versions: [{ 
-//         title: "PREV_PROJECT_TITLE", 
-//         version: "VERSION_NO" 
-//     }]
-// },
 
 // --- TechInfo (Atualizado: Adicionando GSAP) ---
 const TechInfo = {
@@ -118,7 +88,7 @@ const TechInfo = {
         description: "Frontend framework for streamlined development, integrating seamlessly with popular tools to create fast and modern websites with minimal configuration overhead.",
         icon: AstroIcon
     },
-    // NOVO ITEM: GSAP (Usando o logo PNG importado para manter a consistência visual)
+    // NOVO ITEM: GSAP (Usando o logo PNG importado)
     GSAP: { 
         title: "GSAP",
         description: "Biblioteca robusta de JavaScript para animações de alta performance e complexas.",
@@ -127,16 +97,16 @@ const TechInfo = {
     E_Commerce: {
         title: "Plataforma E-commerce",
         description: "Plataforma robusta para gestão completa de vendas, estoque e catálogo de produtos online.",
-        icon: TsIcon // Usando TsIcon como um placeholder genérico
+        icon: TsIcon // Placeholder
     },
     Branding: {
         title: "Design & Branding",
         description: "Foco em identidade visual, experiência do usuário e apresentação institucional.",
-        icon: ReactIcon // Usando ReactIcon como um placeholder genérico
+        icon: ReactIcon // Placeholder
     }
 };
 
-// Common Features List (Mantido da sua estrutura original)
+// Common Features List
 const FeatureList = {
     Responsive: {
         title: "Responsive Design",
@@ -182,7 +152,7 @@ export const ProjectsList: ProjectsListType = [
         ShortDesc:
             "Desenvolvida do zero uma loja virtual e-commerce completa, oferecendo uma experiência de compra otimizada e um catálogo diversificado de produtos de vestuário.",
         Desc: "E-commerce robusto para a Casa das Camisetas, focado em vendas de moda e vestuário. O projeto incluiu customizações de layout, integração de pagamentos e otimização do funil de vendas para maximizar a conversão de clientes.",
-        Logo: NextmartLogo, // Placeholder (pode ser o logo da loja se estiver em assets/Logos)
+        Logo: TsIcon, // Placeholder
         Shot: casacamisetasShot,
         Mockup: ARMSv3Mockup, // Placeholder
         Theme: "#66CC66", // Verde E-commerce
@@ -209,7 +179,7 @@ export const ProjectsList: ProjectsListType = [
         ShortDesc:
             "Website institucional da minha empresa, focado em branding e apresentação de serviços. Design clean, responsivo, moderno e com animações de alta qualidade.",
         Desc: "O site MIRAGE SCRIPT foi construído para ser a principal porta de entrada digital da empresa. Foco na clareza da comunicação dos serviços oferecidos, na criação de uma identidade visual profissional e moderna, e na utilização de animações fluidas (via GSAP) para garantir uma experiência de usuário premium e impecável em qualquer dispositivo.",
-        Logo: ReactIcon, // Usando ReactIcon como Logo (placeholder)
+        Logo: ReactIcon, // Placeholder
         Shot: sitemirageShot,
         Mockup: ARMSv3Mockup, // Placeholder
         Theme: "#61DAFB", // Cor temática do React
